@@ -30,19 +30,19 @@ func TestDistance(t *testing.T) {
 
 func TestWaitTime(t *testing.T) {
 	cases := []struct {
-		input    float64
+		input    int
 		expected float64
 	}{
-		{input: 0.0, expected: 0.0},
-		{input: 0.1, expected: 1.0},
-		{input: 0.5, expected: 1.0},
-		{input: 0.6, expected: 1.0},
-		{input: 1.0, expected: 1.0},
-		{input: 1.2, expected: 2.0},
+		{input: 0, expected: 0.0},
+		{input: 1, expected: 1.0},
+		{input: 5, expected: 1.0},
+		{input: 6, expected: 1.0},
+		{input: 10, expected: 1.0},
+		{input: 62, expected: 2.0},
 	}
 
 	for _, c := range cases {
-		t.Run(fmt.Sprintf("should return %.1f when input is %.1f", c.expected, c.input), func(t *testing.T) {
+		t.Run(fmt.Sprintf("should return %.1f when input is %d", c.expected, c.input), func(t *testing.T) {
 			assert.Equal(t, c.expected, waitTime(c.input))
 		})
 	}
