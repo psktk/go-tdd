@@ -1,63 +1,49 @@
 package tuktuk
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func TestDistance(t *testing.T) {
-	t.Run("should return 0 when input is 0", func(t *testing.T) {
-		assert.Equal(t, 0.0, distance(0.0))
-	})
+	cases := []struct {
+		input    float64
+		expected float64
+	}{
+		{input: 0.0, expected: 0.0},
+		{input: 0.1, expected: 0.5},
+		{input: 0.5, expected: 0.5},
+		{input: 0.6, expected: 1.0},
+		{input: 1.0, expected: 1.0},
+		{input: 1.2, expected: 1.5},
+		{input: 19.9, expected: 20.0},
+	}
 
-	t.Run("should return 0.5 when input is 0.1", func(t *testing.T) {
-		assert.Equal(t, 0.5, distance(0.1))
-	})
-
-	t.Run("should return 0.5 when input is 0.5", func(t *testing.T) {
-		assert.Equal(t, 0.5, distance(0.5))
-	})
-
-	t.Run("should return 1 when input is 0.6", func(t *testing.T) {
-		assert.Equal(t, 1.0, distance(0.6))
-	})
-
-	t.Run("should return 1 when input is 1.0", func(t *testing.T) {
-		assert.Equal(t, 1.0, distance(1.0))
-	})
-
-	t.Run("should return 1.5 when input is 1.2", func(t *testing.T) {
-		assert.Equal(t, 1.5, distance(1.2))
-	})
-
-	t.Run("should return 20.0 when input is 19.9", func(t *testing.T) {
-		assert.Equal(t, 20.0, distance(19.9))
-	})
+	for _, c := range cases {
+		t.Run(fmt.Sprintf("should return %.1f when input is %.1f", c.expected, c.input), func(t *testing.T) {
+			assert.Equal(t, c.expected, distance(c.input))
+		})
+	}
 }
 
 func TestWaitTime(t *testing.T) {
-	t.Run("should return 0 when input is 0", func(t *testing.T) {
-		assert.Equal(t, 0.0, waitTime(0.0))
-	})
+	cases := []struct {
+		input    float64
+		expected float64
+	}{
+		{input: 0.0, expected: 0.0},
+		{input: 0.1, expected: 1.0},
+		{input: 0.5, expected: 1.0},
+		{input: 0.6, expected: 1.0},
+		{input: 1.0, expected: 1.0},
+		{input: 1.2, expected: 2.0},
+	}
 
-	t.Run("should return 1 when input is 0.1", func(t *testing.T) {
-		assert.Equal(t, 1.0, waitTime(0.1))
-	})
-
-	t.Run("should return 1 when input is 0.5", func(t *testing.T) {
-		assert.Equal(t, 1.0, waitTime(0.5))
-	})
-
-	t.Run("should return 1 when input is 0.6", func(t *testing.T) {
-		assert.Equal(t, 1.0, waitTime(0.6))
-	})
-
-	t.Run("should return 1.0 when input is 1.0", func(t *testing.T) {
-		assert.Equal(t, 1.0, waitTime(1.0))
-	})
-
-	t.Run("should return 2 when input is 1.2", func(t *testing.T) {
-		assert.Equal(t, 2.0, waitTime(1.2))
-	})
+	for _, c := range cases {
+		t.Run(fmt.Sprintf("should return %.1f when input is %.1f", c.expected, c.input), func(t *testing.T) {
+			assert.Equal(t, c.expected, waitTime(c.input))
+		})
+	}
 }
