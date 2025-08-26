@@ -47,3 +47,21 @@ func TestWaitTime(t *testing.T) {
 		})
 	}
 }
+
+func TestFare(t *testing.T) {
+	cases := []struct {
+		km       float64
+		seconds  int
+		expected float64
+	}{
+		{km: 0.0, seconds: 0, expected: 0.0},
+		{km: 11.6, seconds: 180, expected: 51.0},
+		{km: 8.5, seconds: 180, expected: 37.0},
+	}
+
+	for _, c := range cases {
+		t.Run(fmt.Sprintf("should return %.1f when distance is %.1f and wait time is %d", c.expected, c.km, c.seconds), func(t *testing.T) {
+			assert.Equal(t, c.expected, fare(c.km, c.seconds))
+		})
+	}
+}

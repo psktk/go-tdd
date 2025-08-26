@@ -9,3 +9,7 @@ func distance(raw float64) float64 {
 func waitTime(sec int) float64 {
 	return math.Ceil(float64(sec) / 60)
 }
+
+func fare(km float64, seconds int) float64 {
+	return 4.0*distance(km) + 1.0*waitTime(seconds)
+}
