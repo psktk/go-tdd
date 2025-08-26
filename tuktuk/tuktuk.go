@@ -1,11 +1,7 @@
 package tuktuk
 
-func distance(raw float64) float64 {
-	d := 0.0
-	for raw > 0 {
-		raw -= 0.5
-		d += 0.5
-	}
+import "math"
 
-	return d
+func distance(raw float64) float64 {
+	return math.Ceil(raw*2) / 2
 }
