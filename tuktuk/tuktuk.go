@@ -2,8 +2,8 @@ package tuktuk
 
 import "math"
 
-func distance(raw float64) float64 {
-	return math.Ceil(raw*2) / 2
+func distance(km float64) float64 {
+	return math.Ceil(km*2) / 2
 }
 
 func waitMins(sec int) float64 {
