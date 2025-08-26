@@ -11,5 +11,6 @@ func waitTime(sec int) float64 {
 }
 
 func fare(km float64, seconds int) float64 {
-	return 4.0*distance(km) + 1.0*waitTime(seconds)
+	fare := 4.0*distance(km) + 1.0*waitTime(seconds)
+	return math.Max(fare, 35.0)
 }

@@ -54,8 +54,8 @@ func TestFare(t *testing.T) {
 		seconds  int
 		expected float64
 	}{
-		{km: 0.0, seconds: 0, expected: 0.0},
 		{km: 11.6, seconds: 180, expected: 51.0},
+		{km: 7.5, seconds: 180, expected: 35.0},
 		{km: 8.5, seconds: 180, expected: 37.0},
 	}
 
