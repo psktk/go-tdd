@@ -65,3 +65,11 @@ func TestFare(t *testing.T) {
 		})
 	}
 }
+
+func TestPrintFare(t *testing.T) {
+	t.Run("should return formatted fare string", func(t *testing.T) {
+		result := PrintFare(11.8, 170)
+		expected := "Ride Fare: ฿51.00 for Distance: 12.0 km, Waiting Time: 3 minutes"
+		assert.Equal(t, expected, result)
+	})
+}
