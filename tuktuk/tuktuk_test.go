@@ -28,7 +28,7 @@ func TestDistance(t *testing.T) {
 	}
 }
 
-func TestWaitTime(t *testing.T) {
+func TestWaitMins(t *testing.T) {
 	cases := []struct {
 		input    int
 		expected float64
@@ -43,7 +43,7 @@ func TestWaitTime(t *testing.T) {
 
 	for _, c := range cases {
 		t.Run(fmt.Sprintf("should return %.1f when input is %d", c.expected, c.input), func(t *testing.T) {
-			assert.Equal(t, c.expected, waitTime(c.input))
+			assert.Equal(t, c.expected, waitMins(c.input))
 		})
 	}
 }
